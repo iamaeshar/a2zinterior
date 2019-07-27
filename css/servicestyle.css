@@ -1,0 +1,27 @@
+.project-slide-img-div{
+	position: relative;
+}
+.project-slide-img-layer{
+	position: absolute;
+	top: 100%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s linear;
+	overflow: hidden;
+}
+.plus-sym-circle{
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid #fff;
+	padding: 4px 8px;
+	color: #ffc107;
+}
+.project-slide-img-div:hover .project-slide-img-layer{
+	top: 0;
+}

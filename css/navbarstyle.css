@@ -1,0 +1,15 @@
+@media (max-width: 767px){
+	.navbar-nav {
+    	padding: 8px 0px;
+    	background-color: rgba(0,0,0,0.8);
+    }
+}
+.dropdown-menu > li > a{
+	padding: 12px 30px!important;
+}
+.dropdown-menu > li > a:hover{
+	color: #FFC107!important;
+}
+.navbar-brand{
+	margin-top: -15px;
+}

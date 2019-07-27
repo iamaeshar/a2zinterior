@@ -1,0 +1,58 @@
+	<?php include('inc/header.html'); ?>
+
+	<title>Interior Design | Interior Designer in Delhi | Interior Designer</title>
+	<meta name="keywords" content="Interior design , interior designer , interior designer in delhi , home design , interior design ideas , home decor ideas , bedroom interiors" />
+	<meta name="description" content="A2Z Interior is the best Interior Design firm in Delhi-NCR. We also offer services for Home Interior, Modular kitchens and corporate office interior design at affordable prices.">
+
+	<!-- <link rel="stylesheet" type="text/css" href="css/indexstyle.css"> -->
+</head>
+<body>
+
+<!-- navbar -->
+<?php include("inc/navbar.html"); ?>
+<!-- //navbar -->
+
+<!-- Banner -->
+<section id="about-banner-sec" class="banner-sec">
+	<div class="banner-container">
+		<img src="images/gallery-banner.webp" class="img-responsive">
+		<div class="banner-text">
+			<h1>Explore Real Projects !!</h1>	
+		</div>
+	</div>
+</section>
+<!-- //Banner -->
+
+<!-- gallery --> 
+<div class="gallery section-padding" id="portfolio">
+	<div class="container">
+	<h3 class="heading">OUR GALLERY</h3>
+		<div class="gallery_gds">
+			<?php 
+				require_once 'php/dbconnect.php';
+				$sql = "SELECT * FROM gallery limit 12";
+				$res = $conn->query($sql);
+
+				if($res->num_rows > 0){
+					while($row = $res->fetch_assoc()){
+						echo "
+							<div class='col-md-3 col-sm-12 gal-w3l'>
+								<div class='agileits-img'>
+									<a href='storage/$row[gallery_img]' class='swipebox' title='$row[gallery_img_desc]'>
+										<img class='img-responsive img-style row2' src='storage/$row[gallery_img]' alt=''/> 
+									</a> 
+								</div>
+							</div>
+						";
+					}
+				}
+			?>
+		   <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>    
+<!-- //gallery -->
+
+<!-- Footer -->
+<?php include("inc/footer.html"); ?>
+<!-- //Footer -->

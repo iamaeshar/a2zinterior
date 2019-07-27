@@ -1,0 +1,294 @@
+<!-- Project Request Bar -->
+<section id="request-bar-sec" class="yellow-bg">
+	<div class="request-img img-hover-style-container">
+		<img src="images/service-1.webp" class="img-hover-style">
+	</div>
+	<div class="request-txt">
+		<h1>ARE YOU READY TO DISCUSS YOUR DREAM PROJECT?</h1>
+		<br>
+		<a href="contact-us" class="btn btn-lg">Contact Us</a>
+	</div>
+</section>
+
+<!-- footer -->
+<div class="footer">
+	<div class="container">
+		<div class="f-bg-w3l">
+			<div class="col-md-3 w3layouts_footer_grid" data-aos="fade-down">
+				<h3 class="yellow-font">Newsletter</h3>
+				<p>By subscribing to our mailing list you will always get latest news and updates from us.</p>
+				<form action="#" method="post" onsubmit="return subscribeSubmit(event)" id="subs-form">
+					<input type="email" name="email" id="emailid" placeholder="Enter your email...">
+					<button class="btn1"><i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+					<div class="clearfix"> </div>
+				</form>
+				<script type="text/javascript">
+					function subscribeSubmit(e) {
+						e.preventDefault();
+						var email = $('#emailid').val();
+						console.log(email);
+						if (email == "") {
+							alert('Please Enter your email ID First');
+						} else {
+							$.ajax({
+								url: "php/mailsubscribedata.php",
+								data: {
+									email: email
+								},
+								type: 'POST',
+								beforeSend: () => {
+									$('.loader-div').show();
+								},
+								success: (data) => {
+									if (data) {
+										$('.message-div').addClass('message-show').removeClass('message-hide');
+										$('.message-div > p').text('Thank you for subscribing us. You will get every updates from us.');
+										setTimeout(function () {
+											$('.message-div').addClass('message-hide').removeClass('message-show');
+										}, 3000);
+									}
+									$('#subs-form')[0].reset();
+								},
+								error: () => {
+									$('.message-div').addClass('message-show').removeClass('message-hide');
+									$('.message-div > p').text('Something went wrong! Please try after sometime');
+									setTimeout(function () {
+										$('.message-div').addClass('message-hide').removeClass('message-show');
+									}, 3500);
+								},
+								complete: () => {
+									$('.loader-div').hide();
+								}
+							});
+						}
+					}
+				</script>
+			</div>
+			<div class="col-md-3 w3layouts_footer_grid" data-aos="fade-right">
+				<h3 class="yellow-font">Connect With Us</h3>
+				<div class="icon-container">
+					<div class="icon-item">
+						<a href="#" class="icon-box" id="fb-icon"><i class="fa fa-facebook"></i></a>
+					</div>
+					<div class="icon-item">
+						<a href="#">Like us on Facebook</a>
+					</div>
+				</div>
+				<div class="icon-container">
+					<div class="icon-item">
+						<a href="#" class="icon-box" id="twitter-icon"><i class="fa fa-twitter"></i></a>
+					</div>
+					<div class="icon-item">
+						<a href="#">Follow us on Twiiter</a>
+					</div>
+				</div>
+				<div class="icon-container">
+					<div class="icon-item">
+						<a href="#" class="icon-box" id="insta-icon"><i class="fa fa-instagram"></i></a>
+					</div>
+					<div class="icon-item">
+						<a href="#">Follow us on Instagram</a>
+					</div>
+				</div>
+				<div class="icon-container">
+					<div class="icon-item">
+						<a href="#" class="icon-box" id="linkedin-icon"><i class="fa fa-linkedin"></i></a>
+					</div>
+					<div class="icon-item">
+						<a href="#">Connect us on LinkedIn</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 w3layouts_footer_grid" data-aos="fade-right">
+				<h3 class="yellow-font">Address</h3>
+				<ul class="con_inner_text">
+					<li><span class="fa fa-map-marker" aria-hidden="true"></span> R-5, Gaffar Manzil 2, Jamia Nager,
+						Okhla, New Delhi-25</li>
+					<li><span class="fa fa-envelope-o" aria-hidden="true"></span> <a
+							href="mailto:info@a2zinterior.in">info@a2zinterior.in</a></li>
+					<li><span class="fa fa-phone" aria-hidden="true"></span> <a
+							href="tel:+91-9990577836">+91-9990577836</a></li>
+					<!-- <li><span class="fa fa-globe" aria-hidden="true"></span> <a href="#">info@website.com</a></li> -->
+				</ul>
+			</div>
+			<div class="col-md-3 w3layouts_footer_grid" data-aos="fade-left">
+				<h3 class="yellow-font">Navigation</h3>
+				<ul class="con_inner_text midimg">
+					<li><a href="./">Home</a></li>
+					<li><a href="about-us">About Us</a></li>
+					<li><a href="gallery">Galley</a></li>
+					<li><a href="contact-us">Contact Us</a></li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!-- //footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container text-center">
+		<p class="copyright">© 2018 Interior Home. All Rights Reserved | Design by <a href="https://wampinfotech.com/"
+				target="_blank">WAMP Infotech</a></p>
+	</div>
+</div>
+<!-- //copyright -->
+
+<!-- Loader -->
+<div class="loader-div">
+	<div class="loader"></div>
+</div>
+<!-- //Loader -->
+
+<!-- Message Div -->
+<div class="message-div alert alert-success text-center message-hide">
+	<p id="msg">Message</p>
+</div>
+<!-- //Message Div -->
+
+<!-- banner-type-text -->
+<script src="js/typed.js" type="text/javascript"></script>
+<script>
+	$(function () {
+
+		$("#typed").typed({
+			// strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
+			stringsElement: $('#typed-strings'),
+			typeSpeed: 30,
+			backDelay: 500,
+			loop: false,
+			contentType: 'html', // or text
+			// defaults to false for infinite loop
+			loopCount: false,
+			callback: function () { foo(); },
+			resetCallback: function () { newTyped(); }
+		});
+
+		$(".reset").click(function () {
+			$("#typed").typed('reset');
+		});
+
+	});
+
+	function newTyped() { /* A new typed object */ }
+
+	function foo() { console.log("Callback"); }
+</script>
+<!-- //banner-type-text -->
+
+<!-- flexSlider -->
+<script defer src="js/jquery.flexslider.js"></script>
+<script type="text/javascript">
+	$(window).load(function () {
+		$('.flexslider').flexslider({
+			animation: "slide",
+			start: function (slider) {
+				$('body').removeClass('loading');
+			}
+		});
+	});
+</script>
+<!-- //flexSlider -->
+
+<!-- swipe box js -->
+<script src="js/jquery.adipoli.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function () {
+		$('.row2').adipoli({
+			'startEffect': 'overlay',
+			'hoverEffect': 'sliceDown'
+		});
+	});
+
+</script>
+<script src="js/jquery.swipebox.min.js"></script>
+<script type="text/javascript">
+	jQuery(function ($) {
+		$(".swipebox").swipebox();
+	});
+</script>
+<!-- //swipe box js -->
+
+<!-- Numscroller -->
+<script type="text/javascript" src="js/numscroller-1.0.js"></script>
+<!-- //Numscroller -->
+
+<!-- Responsive Slider script -->
+<script src="js/responsiveslides.min.js"></script>
+<script>
+	// You can also use "$(window).load(function() {"
+	$(function () {
+		$("#slider").responsiveSlides({
+			auto: true,
+			nav: true,
+			manualControls: '#slider3-pager',
+		});
+	});
+</script>
+<!-- //Responsive Slider script -->
+
+<script src="js/SmoothScroll.min.js"></script>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript">
+	jQuery(document).ready(function ($) {
+		$(".scroll").click(function (event) {
+			event.preventDefault();
+			$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		$().UItoTop({ easingType: 'easeOutQuart' });
+
+	});
+</script>
+
+<!-- move to top-js-files -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<!-- //move to top-js-files -->
+
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script><!-- bootstrap js file -->
+
+<!-- Active Nav -->
+<script type="text/javascript">
+
+	var path = window.location.pathname.split("/").pop();
+
+	// Account for home page with empty path
+	if (path == '') {
+		path = './';
+	} else if (path == 'architectural-services' || path == 'interior-designer' || path == 'custom-furniture' || path == 'design-and-build') {
+		path = '#';
+	}
+
+	var target = $('nav a[href="' + path + '"]');
+
+	// Add active class to target link
+	target.addClass('active');
+
+</script>
+<!-- //Active Nav -->
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+	var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+	(function () {
+		var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+		s1.async = true;
+		s1.src = 'https://embed.tawk.to/5bb8a65cb033e9743d029636/default';
+		s1.charset = 'UTF-8';
+		s1.setAttribute('crossorigin', '*');
+		s0.parentNode.insertBefore(s1, s0);
+	})();
+</script>
+<!--End of Tawk.to Script-->
+
+</body>
+
+</html>

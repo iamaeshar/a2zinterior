@@ -1,0 +1,54 @@
+<section id="project-slide-sec" class="section-padding">
+	<div class="container">
+		<h3 class="heading">PROJECT IMAGES</h3>
+		<br><br>
+		<div class="owl-carousel">
+			<?php 
+				require_once 'php/dbconnect.php';
+				$sql = "SELECT * FROM gallery limit 12";
+				$res = $conn->query($sql);
+
+				if($res->num_rows > 0){
+					while($row = $res->fetch_assoc()){
+						echo "
+							<div class='project-slide-img-div'>
+								<a href='storage/$row[gallery_img]' data-fancybox='project_slide'>
+									<img src='storage/$row[gallery_img]' /> 
+									<div class='project-slide-img-layer'>
+										<div class='plus-sym-circle'>
+											<span class='fa fa-plus'></span>
+										</div>
+									</div>
+								</a> 
+							</div>
+						";
+					}
+				}
+			?>
+	</div>
+</section>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".owl-carousel").owlCarousel({
+	      items: 4,
+	      autoplay: 3000,
+	      nav: false,
+	      loop:true,
+	      autoplaySpeed:2000,
+	      mouseDrag: true,
+	      touchDrag: true,
+	      responsive:{
+		        0:{
+		            items:1
+		        },
+		        400:{
+		            items:2
+		        },
+		        800:{
+		            items:4
+		        }
+		    }
+	    });
+	});
+</script>
